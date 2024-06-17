@@ -4,7 +4,7 @@ import Checkbox from "./Checkbox.js";
 import githubLogo from "../pictures/github_logo.png";
 import ResultText from "./ResultText.js";
 import Modal from "./Modal.js";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
 	const [visible, setVisible] = useState(false);
@@ -13,7 +13,6 @@ function App() {
 	const [submit, setSubmit] = useState(false);
 	const [result, setResult] = useState("");
 	const [image, setImage] = useState([]);
-	const hasPageBeenRendered = useRef(false);
 	const buttonClassName =
 		"bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded";
 	const titleClassName =
@@ -29,14 +28,13 @@ function App() {
 	
 	// this will submit the image to backend
 	useEffect(() => {
-		if (hasPageBeenRendered.current && image.length > 0) {
+		if (image.length > 0) {
 			// when ever setImage is called
 			console.log(image);
 			// some cloud function taking image as a param
 			const answer = "Its an 8!"
 			setResult(answer);
 		}
-		hasPageBeenRendered.current = true;
 	}, [image])
 
 	return (
