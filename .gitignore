@@ -21,3 +21,10 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# misc 
+/src/scripts/test.py
+/src/scripts/test_input_output.json
+/src/scripts/model_weights.json 
+/src/scripts/bias.json 
+.vscode

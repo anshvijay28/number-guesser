@@ -16,7 +16,10 @@ export default function Modal({ showModal, setShowModal }) {
 								{/*body*/}
 								<div className="relative p-6 flex-auto">
 									<p className="my-4 text-blueGray-500 text-lg leading-relaxed">
-										The model determining your hand-drawn digit is a 4 layered
+										Draw a single digit and the model will do its best to
+										determine what you drew. Please note that the model doing
+										the prediction was only trained on single digits (0 - 9). The
+										model determining your hand-drawn digit is a 4 layered
 										neural network made from scratch! The code for that can be
 										found
 										<a

@@ -6,7 +6,7 @@ const DrawingCanvas = ({ clear, setClear, submit, setSubmit, setImage }) => {
 	const hasPageBeenRendered = useRef({ clear: false, submit: false });
 	const [isDrawing, setIsDrawing] = useState(false);
 
-	const CANVAS_SIZE = 475;
+	const CANVAS_SIZE = 504;
 
 	useEffect(() => {
 		const canvas = canvasRef.current;
@@ -23,8 +23,8 @@ const DrawingCanvas = ({ clear, setClear, submit, setSubmit, setImage }) => {
 			const ctx = canvas.getContext("2d");
 			if (submit) {
 				const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-				const pixels = imageData.data;
-				setImage(Array.from(pixels));
+				const pixels = Array.from(imageData.data).filter((_, i) => (i + 1) % 4 === 0);
+				setImage(pixels);
 				setSubmit(false);
 			}
 		}
@@ -65,11 +65,6 @@ const DrawingCanvas = ({ clear, setClear, submit, setSubmit, setImage }) => {
 	};
 
 	const endDrawing = () => {
-		// const canvas = canvasRef.current;
-		// const ctx = canvas.getContext("2d");
-		// const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-		// const pixels = imageData.data;
-		// setImage(Array.from(pixels));
 		setIsDrawing(false);
 	};
 
