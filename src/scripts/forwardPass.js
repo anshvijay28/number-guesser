@@ -16,7 +16,7 @@ function softmax(u3) {
 	return softmaxed;
 }
 
-// used for testing
+// eslint-disable-next-line
 function convertToImg(inp) {
 	let img = new Array(28).fill(0).map(() => new Array(28).fill(0));
 	for (let i = 0; i < 28; i++) {
