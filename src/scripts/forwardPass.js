@@ -1,6 +1,7 @@
 import { map, matrix, multiply, add } from "mathjs";
-import weights from "./model_weights.json";
-import bias from "./bias.json";
+
+import interp_weights from "./interp_model_weights.json";
+import interp_bias from "./interp_model_bias.json"
 
 const sigmoid = (num) => 1 / (1 + Math.exp(-1 * num));
 
@@ -36,13 +37,13 @@ function convertToInputMatrix(inp) {
 	return targetMatrix;
 }
 
-const W1 = matrix(weights.h1);
-const W2 = matrix(weights.h2);
-const W3 = matrix(weights.o);
+const W1 = matrix(interp_weights.h1);
+const W2 = matrix(interp_weights.h2);
+const W3 = matrix(interp_weights.o);
 
-const B1 = matrix(bias.h1);
-const B2 = matrix(bias.h2);
-const B3 = matrix(bias.o);
+const B1 = matrix(interp_bias.h1);
+const B2 = matrix(interp_bias.h2);
+const B3 = matrix(interp_bias.o);
 
 function forwardPass(image) {
 	const originalSize = Math.sqrt(image.length);
@@ -69,6 +70,8 @@ function forwardPass(image) {
 			pooledVals.push(Math.round((normalizeAvg + Number.EPSILON) * 100) / 100);
 		}
 	}
+
+	console.log(convertToImg(pooledVals))
 
 	let input = convertToInputMatrix(pooledVals);
 	let u1 = add(multiply(W1, input), B1);
