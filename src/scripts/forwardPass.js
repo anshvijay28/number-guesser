@@ -57,6 +57,7 @@ function forwardPass(image) {
 		originalMatrix.push(image.slice(i * originalSize, (i + 1) * originalSize));
 	}
 
+	// average pooling
 	for (let i = 0; i < targetSize; i++) {
 		for (let j = 0; j < targetSize; j++) {
 			let sum = 0;
@@ -71,7 +72,7 @@ function forwardPass(image) {
 		}
 	}
 
-	console.log(convertToImg(pooledVals))
+	console.log(convertToImg(pooledVals));
 
 	let input = convertToInputMatrix(pooledVals);
 	let u1 = add(multiply(W1, input), B1);
