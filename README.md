@@ -31,8 +31,12 @@ for (let i = 0; i < targetSize; i++) {
 ```
 Here is an example of what the user draws and what the model sees after applying the average-pooling operation. 
 
-![user_view](./src/pictures/user_view_5.png)
-![model_view](./src/pictures/model_view_5.png)
+
+<p align="center">
+    <img src="./src/pictures/user_view_5.png" alt="drawing" width="300" padding="30"/>
+    <img src="./src/pictures/model_view_5.png" alt="drawing" width="300"/>
+</p>
+
 
 
 Checkout the project [here](https://number-guesser-efbea.web.app/)!
