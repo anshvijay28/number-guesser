@@ -72,8 +72,6 @@ function forwardPass(image) {
 		}
 	}
 
-	console.log(convertToImg(pooledVals));
-
 	let input = convertToInputMatrix(pooledVals);
 	let u1 = add(multiply(W1, input), B1);
 	let o1 = map(u1, sigmoid);
